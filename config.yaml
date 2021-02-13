@@ -1,0 +1,2 @@
+authlog_path: "/var/log/secure"
+syslog_path: "/var/log/messages"

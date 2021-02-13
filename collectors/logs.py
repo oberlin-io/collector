@@ -3,12 +3,12 @@ import yaml
 
 class AuthLog():
 
-    def __init__(self):
+    def __init__(self, config):
         
         with open('../var.yaml', 'r') as f:
             self.var = yaml.safe_load(f.read())
 
-        self.authlog_path = '/var/log/auth.log'
+        self.authlog_path = config['authlog_path']
 
 
     def watch_authlog(self):
