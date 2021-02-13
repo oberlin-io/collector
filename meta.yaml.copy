@@ -1,0 +1,10 @@
+authlog:
+  filepath: "/var/log/secure"
+  recent_mod: 0
+  recent_line: ~
+
+syslog:
+  filepath: "/var/log/messages"
+  recent_mod: 0
+  recent_line: ~
+

@@ -1,0 +1,8 @@
+authlog:
+  filepath: /var/log/secure
+  recent_line: null
+  recent_mod: 0
+syslog:
+  filepath: /var/log/messages
+  recent_line: null
+  recent_mod: 0
