@@ -1,8 +1,10 @@
 authlog:
   filepath: /var/log/secure
-  recent_line: null
+  recent_line: 'Feb 14 00:38:27 ip-172-31-51-31 sshd[28238]: pam_unix(sshd:session):
+    session opened for user ec2-user by (uid=0)'
   recent_mod: 0
 syslog:
   filepath: /var/log/messages
-  recent_line: null
+  recent_line: 'Feb 13 23:36:46 ip-172-31-51-31 dhclient[2244]: XMT: Solicit on eth0,
+    interval 111580ms.'
   recent_mod: 0

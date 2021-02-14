@@ -29,7 +29,7 @@ class FileLines():
         self.newlines = self.lines[self.get_newindex():]
         
         
-        if len(self.newlines) < 0:
+        if len(self.newlines) > 0:
             self.meta[self.metaname]['recent_line'] = self.newlines[-1]
 
         return self.newlines

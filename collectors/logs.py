@@ -1,7 +1,46 @@
 import os
 import yaml
+import re
+from datetime import datetime
 
-class AuthLog():
+
+def convert_timestamps(data):
+
+    for line in data:
+        index = data.index(line)
+        
+        data[index]['timestamp'] = datetime.strptime(
+            line['timestamp'],
+            '%b %d %H:%M:%S'
+            ) \
+            .replace(year=datetime.now().year) \
+            .strftime('%Y-%m-%d %H:%M:%S')
+
+
+def authlog_invaliduser(lines):
+
+    pattern = re.compile(r'(?P<timestamp>\w{3}\s\d{1,2}\s\d{2}:\d{2}:\d{2})\s.+\ssshd\[' \
+'(?P<session_id>\d+)\]:\s' \
+'(?P<event>Invalid\suser)\s' \
+'(?P<user>.+)\sfrom\s' \
+'(?P<ip>\d{1,3}(?:\.\d{1,3}){3})\sport\s' \
+'(?P<port>\d+)'
+    )
+
+    data = list()    
+
+    for line in lines:
+        matches = pattern.search(line)
+        if matches:
+            data.append(matches.groupdict())
+
+    convert_timestamps(data)
+
+    return data
+
+    
+
+class _AuthLog():
 
     def __init__(self, config):
         
@@ -44,3 +83,4 @@ class AuthLog():
             if 'systemd-logind[' in line:
                 m = pat.match(line)
                 
+
