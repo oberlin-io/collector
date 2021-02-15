@@ -1,0 +1,26 @@
+# Sys and auth logs
+log_timestamp: '(?P<timestamp>\w{3}\s{1,2}\d{1,2}\s\d{2}:\d{2}:\d{2})'
+log_seession_id: '[(?P<session_id>\d+)\]'
+log_foruser: 'for\s(?P<user>[^\s]+)'
+log_fromip: 'from\s(?P<ip>\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})'
+log_port: 'port\s(?P<port>\d{1,5})'
+
+## Failed SSH login by password
+log_event_failwithpwd: '(?P<event>Failed\spassword)'
+
+## Successful SSH login by password
+log_event_successwithpwd: '(?P<event>Accepted\spassword)'
+
+## Successful SSH login by publickey
+log_event_successwithkey: '(?P<event>Accepted\spublickey)'
+
+## New user created
+log_event_newuser: '(?P<event>new\suser):'
+log_username: 'name=(?P<user>[^\s]+)'
+log_uid: 'UID=(?P<uid>\d+)'
+
+# HTTP daemon log
+httpd_access_full: '(?P<src>^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})\s-\s-\s\[(?P<timestamp>[^\s]+)\s.+\]\s"(?P<method>\w+)\s(?P<resource>[^\s]+)\s.+"\s(?P<status>\d{3})[^\(]+\((?P<os>[^;]+);\s(?P<os_version>[^;]+);\s(?P<device>[^\)]+)\)[^\(]+\([^\)]+\)\s(?P<browser>[^"]+)'
+
+httpd_access_srcip: ~
+
